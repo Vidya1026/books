@@ -37,7 +37,16 @@ const UserCart = () => {
     };
     const {cartItems, removeFromCart} = useCart()
 
-    console.log(cartItems);
+    // console.log(cartItems);
+    const calculateTotalPrice = () => {
+        let totalPrice = 0;
+        cartItems.forEach((item) => {
+            totalPrice += item.price;
+        });
+        return totalPrice;
+    };
+    // console.log("asdf",calculateTotalPrice())
+
   return (
     <>
     <Dialog
@@ -90,7 +99,7 @@ const UserCart = () => {
         <Box p={2} sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }} >
             <Box  >
 
-                <h2 className='y-cart'>Your Cart:{cartItems.length}</h2>
+                <h2 className='y-cart'> TOTAL:${calculateTotalPrice()}</h2>
 
             </Box>
             <Box >
