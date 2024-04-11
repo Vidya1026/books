@@ -106,6 +106,9 @@ const Home = () => {
               backgroundSize: "cover",
               backgroundPosition: "center",
               overflow: "hidden",
+            zIndex:2,
+            position:"relative"
+
             }}
             src={step.imgPath}
             alt={step.label}

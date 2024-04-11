@@ -2,12 +2,10 @@ import React from 'react'
 import banner from "../Assets/bus2.jpeg";
 
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Icon, Paper, Typography, useTheme } from '@mui/material';
-import driver1 from "../Assets/aboutimage1.JPG";
-import driver2 from "../Assets/aboutimage2.JPG";
-import driver3 from "../Assets/aboutimage3.JPG";
-import driver4 from "../Assets/aboutimage4.JPG";
-import driver5 from "../Assets/aboutimage5.JPG";
-import driver6 from "../Assets/aboutimage6.JPG";
+import driver1 from "../Assets/1612639204-image3.jpg";
+import driver2 from "../Assets/download (1).jpeg";
+import driver3 from "../Assets/woman-reading-books-background-8.jpg";
+
 import Grid from '@mui/material/Unstable_Grid2';
 
 
@@ -32,7 +30,7 @@ const About = () => {
           <img
             style={{ width: '90%', height:"300px", objectFit: 'cover' }}
             alt="green iguana"
-            src={banner}
+            src={driver1}
           />
           </Box>
         
@@ -69,7 +67,7 @@ const About = () => {
           <img
             style={{ width: '90%', height:"300px", objectFit: 'cover' }}
             alt="green iguana"
-            src={banner}
+            src={driver2}
           />
           </Box>
         
@@ -91,7 +89,7 @@ const About = () => {
           <img
             style={{ width: '90%', height:"300px", objectFit: 'cover' }}
             alt="green iguana"
-            src={banner}
+            src={driver3}
           />
           </Box>
         

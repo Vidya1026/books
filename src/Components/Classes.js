@@ -60,32 +60,43 @@ const Classes = () => {
   const totalPages = Math.ceil(gridData.length / itemsPerPage);
   return (
    <>
-    <Box p={{ xs: 2, lg: 6 }}>
-      <Grid container spacing={2}>
-        {gridData.slice(startIndex, endIndex).map(item => (
-          <Grid key={item.id} item xs={12} lg={12}>
-            <Paper elevation={3} sx={{ p: 2 }}>
-              <Box display="flex">
-                <Grid item xs={12} lg={6}>
-                  <img src={item.image} style={{ width: '90%', objectFit: 'cover' }} alt="Image" />
-                </Grid>
-                <Box flex="1">
-                  <Typography variant="h5" sx={{ fontSize: "18px" }}>
+  <Box  p={{xs:1,lg:3}} >
+      <Grid container  component={Paper} p={2}>
+       {gridData.slice(startIndex, endIndex).map(item => ( 
+       <>
+        <Grid key={item.index} xs={12} lg={6} md={6} sm={12}>
+      <Box p={{xs:1,lg:6}}  pt={1}>
+      <img src={item.image} style={{ width: '90%', objectFit: 'cover' }} alt="Image" />
+      </Box>
+                   
+       </Grid>
+
+        <Grid  xs={12} lg={6} md={6} sm={12}>
+        <Box p={4}>
+        <Typography variant="h5" sx={{ fontSize: "18px" }}>
                     <b>{item.title}</b>
                   </Typography>
                   <Typography pt={1}>
                     {item.description}
                   </Typography>
-                  <Box pt={2}>
-                    <Button sx={{ backgroundColor: "black", color: "white" }}>PRACTICE</Button>
+                  <Box >
+                    <Button variant='contained' sx={{ backgroundColor: "black", color: "white" }}>PRACTICE</Button>
                   </Box>
-                </Box>
-              </Box>
-            </Paper>
-          </Grid>
-        ))}
-      </Grid>
-      <Box mt={2} textAlign="center">
+                  </Box>
+       </Grid>
+       
+    </>
+
+       ))} 
+        
+       
+       
+       
+       
+       </Grid>
+       <hr/>
+       </Box>
+       <Box mt={2} textAlign="center">
         <Button disabled={currentPage === 1} onClick={prevPage}>Previous</Button>
         {[...Array(totalPages)].map((_, index) => (
           <StyledButton key={index + 1} onClick={() => setCurrentPage(index + 1)} variant={currentPage === index + 1 ? 'contained' : 'outlined'}>
@@ -94,10 +105,7 @@ const Classes = () => {
         ))}
         <Button disabled={currentPage === totalPages} onClick={nextPage}>Next</Button>
       </Box>
-    </Box>
-
-
-
+    
    </>
   )
 }

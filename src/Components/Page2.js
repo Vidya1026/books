@@ -244,7 +244,7 @@ const Page2 = () => {
             id="outlined-adornment-password"
             size="small"
             required
-            style={{ width: "30vw" }}
+            sx={{ width:{xs:"20rem",lg: "30vw"} }}
             type={showPassword ? 'text' : 'password'}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
