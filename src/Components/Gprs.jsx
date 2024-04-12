@@ -271,7 +271,7 @@ const Gprs = () => {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
       <Grid xs={12} lg={12} md={12} sm={12}>
-      <Box  sx={{display:'flex',justifyContent:'center',alignItems:'center',gap:"10.8rem"}} >
+      <Box  sx={{display:'flex',justifyContent:'space-around',alignItems:'center',}} >
      <Box>
      <FormControl size="small">
            <InputLabel >Search</InputLabel>
