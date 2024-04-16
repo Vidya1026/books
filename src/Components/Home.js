@@ -102,7 +102,7 @@ const Home = () => {
             component="img"
             sx={{
               width: "100%",
-              height: "80vh",
+              height:{lg:"80vh",xs:"30vh" ,sm:"30vh"},
               backgroundSize: "cover",
               backgroundPosition: "center",
               overflow: "hidden",
