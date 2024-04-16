@@ -8,15 +8,16 @@ import { Button } from '@mui/material';
 import { useCart } from '../context/CartContext';
 
 const Product = () => {
-  const [showAlert, setShowAlert] = useState(false);
+  // const [showAlert, setShowAlert] = useState(false);
   const { addToCart } = useCart();
 
   const handleAddToCart = (item) => {
     addToCart(item);
-    setShowAlert(true);
-    setTimeout(() => {
-      setShowAlert(false);
-    }, 2000); // Hide the alert after 2 seconds
+    window.alert('Item add Successfully')
+    // setShowAlert(true);
+    // setTimeout(() => {
+    //   setShowAlert(false);
+    // }, 1000); // Hide the alert after 2 seconds
   };
 
   const gridData = [
@@ -34,7 +35,7 @@ const Product = () => {
             <Grid item xs={12} key={item.id}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12}  sm={6}>
                     <Box pl={3}>
                     <img src={item.image} style={{ width: '60%', height: 'auto' }} alt="Product" />
                     </Box>
@@ -56,11 +57,8 @@ const Product = () => {
             </Grid>
           ))}
         </Grid>
-        {showAlert && (
-          <Box mt={2}>
-            <Typography variant="body1" align="center" color="success">Item added to cart!</Typography>
-          </Box>
-        )}
+        
+
       </Box>
     </>
   )

@@ -26,6 +26,10 @@ const UserCart = () => {
         }
         setOpen(false);
     };
+    const handleClose3= () => {
+        
+        setOpen(false);
+    };
     const handleClickOpen1 = () => {
         // Set the item to remove
         setOpen1(true);
@@ -34,6 +38,10 @@ const UserCart = () => {
     const handleClose1= () => {
         setOpen1(false);
         navigate('/Gprs')
+    };
+    const handleClose4= () => {
+        setOpen1(false);
+      
     };
     const {cartItems, removeFromCart} = useCart()
 
@@ -62,7 +70,7 @@ const UserCart = () => {
             </DialogContentText>
         </DialogContent>
         <DialogActions>
-            <Button variant='contained' onClick={handleClose} sx={{ backgroundColor: "black", color: "white" }}>NO</Button>
+            <Button variant='contained' onClick={handleClose3} sx={{ backgroundColor: "black", color: "white" }}>NO</Button>
             <Button   variant='contained'onClick={handleClose} sx={{ backgroundColor: "black", color: "white" }} autoFocus>
                 Yes
             </Button>
@@ -76,20 +84,20 @@ const UserCart = () => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
     >
-<Box pt={3}>
+<Box  p={3}>
 <center> <Typography sx={{letterSpacing:"1px"}}><b>PLEASE PROVIDE YOUR ADDRESS</b></Typography></center>
 </Box>
         <DialogContent>
             <DialogContentText id="alert-dialog-description">
              <Box >
                <div >
-                <input style={{width:"300px", height:"200px" ,border:"1px solid black"}} type='text' />
+               <textarea  id="w3review" name="w3review" rows="4" cols="35"></textarea>
                </div>
              </Box>
             </DialogContentText>
         </DialogContent>
         <DialogActions>
-            <Button  variant='contained' onClick={handleClose1} sx={{ backgroundColor: "black", color: "white" }}>cancel</Button>
+            <Button  variant='contained' onClick={handleClose4} sx={{ backgroundColor: "black", color: "white" }}>cancel</Button>
             <Button  variant='contained' onClick={handleClose1} autoFocus sx={{ backgroundColor: "black", color: "white" }}>
                 Submit
             </Button>
@@ -111,44 +119,44 @@ const UserCart = () => {
         {cartItems.length === 0 ?
             (<p style={{paddingLeft:"50%"}} >Your Cart is Empty</p>) :
             <div>
-                {cartItems.map((item) => {
-                    return (
-                        <Box p={3} height={'30%'} key={item.id}>
-
-                            <Grid item xs={12} lg={12}>
-                                <Paper elevation={3} sx={{ p: 1 }}>
-                                    <Box p={4} display="flex" >
-                                        <Grid item xs={12} lg={4}>
-                                            <Box p={4}>
-                                                <img src={item.image} style={{ width: '100%', height: "50vh", objectFit: 'cover' }} alt="Image" />
-                                            </Box>
-                                        </Grid>
-                                        <Box flex="1">
-                                            <Typography pl={4} variant="h5" sx={{ fontSize: "18px" }}>
-                                                <b>{item.title}</b>
-                                            </Typography>
-                                            <Typography pl={4} pt={1}>
-                                                {item.description}
-                                            </Typography>
-                                            <Typography sx={{ fontSize: "1.5rem" }} pl={4} pt={2}>
-                                                <b>{item.price}</b>
-                                            </Typography>
-                                           <Box sx={{display:"flex" ,alignItems:"center" ,justifyContent:'center', flexDirection:'row' }}>
-                                           <Box pl={4}>
+               <Box p={5}>
+        <Grid container spacing={2}>
+          {cartItems?.map(item => (
+            <Grid item xs={12} key={item.id}>
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}  sm={6}>
+                    <Box pl={3}>
+                    <img src={item.image} style={{ width: '60%', height: 'auto' }} alt="Product" />
+                    </Box>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <Typography variant="h5" sx={{ fontSize: "18px" }}>
+                      <b>{item.title}</b>
+                    </Typography>
+                    <Typography mt={1} variant="body1">
+                      {item.description}
+                    </Typography>
+                    <Typography mt={1} variant="body1">
+                     <b> Price: ${item.price}</b>
+                    </Typography>
+                    <Box pt={2} sx={{display:"flex" ,alignItems:"center" ,justifyContent:'center', flexDirection:'row' }}>
+                                           <Box pl={4} >
                                                 <Button variant='contained' sx={{ backgroundColor: "black", color: "white" }} onClick={() => handleClickOpen(item)}>remove</Button>
                                             </Box>
                                             <Box pl={4}>
                                                 <Button variant='contained' sx={{ backgroundColor: "black", color: "white" }}>1+</Button>
                                             </Box>
                                            </Box>
-                                        </Box>
-                                    </Box>
-                                </Paper>
-                            </Grid>
+                  </Grid>
+                </Grid>
+              </Paper>
+            </Grid>
+          ))}
+        </Grid>
+        
 
-                        </Box>
-                    )
-                })}
+      </Box>
             </div>
         }
 
